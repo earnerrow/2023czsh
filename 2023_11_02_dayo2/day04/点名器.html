@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .contain {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+
+            .title {
+                margin: 50px auto;
+                text-align: center;
+            }
+
+            .main {
+                overflow: hidden;
+                display: flex;
+                background-color: #fff34a;
+            }
+
+            .left {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                width: 500px;
+
+                div {
+                    margin: 30px;
+                    width: 40px;
+                    height: 30px;
+                    background: linear-gradient(to right, #f0610e, #e8771a, #fff34a);
+                    background-clip: text;
+                    color: transparent;
+
+                }
+
+            }
+
+            .right {
+                text-align: center;
+                overflow: hidden;
+                height: 600px;
+                position: relative;
+                width: 50%;
+
+                .btn {
+                    margin-top: 200px;
+                    display: flex;
+                    position: absolute;
+                    bottom: 0;
+
+                    div {
+                        width: 100px;
+                        height: 40px;
+                        line-height: 40px;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        margin: 0 5px;
+                    }
+                }
+
+                .showscreen {
+                    width: 100%;
+                    height: 60px;
+                    border: 0;
+                    background-color: #f0610e;
+                    font-size: 40px;
+                    color: black;
+                    text-align: center;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <div class="title">
+            2301c随机点名
+
+        </div>
+        <div class="main">
+            <div class="left">
+
+            </div>
+            <div class="right">
+                <div class="showscreen">
+
+                </div>
+                <div class="btn">
+                    <div class="single">单人</div>
+                    <div class="double">双人</div>
+                    <div class="mael">男</div>
+                    <div class="femael">女</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        let namearr = [{ name: '张三', gender: 0 }, { name: '张四', gender: 0 }, { name: '张五', gender: 0 }, { name: '张六', gender: 0 }, { name: '张起', gender: 0 }, { name: '张八', gender: 0 }, { name: '张九', gender: 0 }, { name: '张师', gender: 0 },
+        { name: '李三', gender: 1 }, { name: '李四', gender: 1 }, { name: '礼物', gender: 1 }, { name: '李六', gender: 1 }, { name: '李起', gender: 1 }, { name: '李把', gender: 0 }, { name: '李就', gender: 0 }, { name: '李是', gender: 0 },
+        { name: '王一', gender: 1 }, { name: '王二', gender: 1 }, { name: '网三', gender: 1 }, { name: '网四', gender: 1 }, { name: '网无', gender: 1 }, { name: '王六', gender: 0 }, { name: '王起', gender: 0 }, { name: '王把', gender: 0 },]
+
+        function createname() {
+            var left = document.getElementsByClassName('left')
+            let div
+
+            for (var i = 0; i < namearr.length; i++) {
+                div += "<div>" + namearr[i].name + "</div>"
+            }
+            left[0].innerHTML = div
+        }
+        createname()
+        let single = document.getElementsByClassName('single')
+        let showscreen = document.getElementsByClassName("showscreen")
+        single[0].addEventListener('click', () => {
+            console.log(23);
+
+            timer = setInterval(() => {
+                var i = Math.floor(Math.random() * namearr.length);
+                for (var j = 0; j < namearr.length; j++) {
+                    namearr[j].className = ''
+                }
+                namearr[i].className = 'change'
+                showscreen[0].innerHTML = namearr[i].name
+            }, 100)
+        })
+        showscreen[0].addEventListener('click', () => {
+            clearInterval(timer)
+            // showscreen[0].value=namearr[i].name
+            var choise = document.getElementsByClassName('change')[0];
+            var name = choise.innerText;
+            showscreen[0].value = name
+        })
+        // 抽取双人 
+        var double = document.getElementsByClassName('double')
+        double[0].addEventListener('click', () => {
+
+        })
+        // 抽取男
+        var mael = document.getElementsByClassName('mael')
+        mael[0].addEventListener('click', () => {
+            let maelarr = namearr.filter(item => item.gender == 0)
+            console.log(maelarr);
+            timer = setInterval(() => {
+                var i = Math.floor(Math.random() * maelarr.length);
+                for (var j = 0; j < maelarr.length; j++) {
+                    maelarr[j].className = ''
+                }
+                maelarr[i].className = 'change'
+                showscreen[0].innerHTML = maelarr[i].name
+            }, 100)
+        })
+        // 抽取女 
+        var femael = document.getElementsByClassName('femael')
+        femael[0].addEventListener('click', () => {
+            let maelarr = namearr.filter(item => item.gender == 1)
+            console.log(maelarr);
+            timer = setInterval(() => {
+                var i = Math.floor(Math.random() * maelarr.length);
+                for (var j = 0; j < maelarr.length; j++) {
+                    maelarr[j].className = ''
+                }
+                maelarr[i].className = 'change'
+                showscreen[0].innerHTML = maelarr[i].name
+            }, 100)
+        })
+    </script>
+</body>
+
+</html>
