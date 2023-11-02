@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .zs {
+            width: 500px;
+            height: 100px;
+            margin: 100px auto;
+            display: flex;
+overflow: hidden;
+
+            /* background-color: antiquewhite; */
+
+
+        }
+
+        .zs div {
+            flex: 1;
+            transition: all 0.5s;
+        }
+       
+        .zs div:hover {
+           flex-grow: 2;
+        }
+ 
+        .zs1 {
+
+            background-color: aqua;
+        }
+
+        .zs2 {
+            background-color: beige;
+
+        }
+
+        .zs3 {
+            background-color: black;
+
+        }
+
+        .zs4 {
+            background-color: brown;
+        }
+
+        .zs5 {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var zs = document.getElementsByClassName('zs')
+        console.log(zs);
+        var a={} 
+        a[1]=4 
+        console.log(a);
+    </script>
+    <div class="zs">
+        <div class="zs1"></div>
+        <div class="zs2"></div>
+        <div class="zs3"></div>
+        <div class="zs4"></div>
+        <div class="zs5"></div>
+    </div>
+</body>
+
+</html>

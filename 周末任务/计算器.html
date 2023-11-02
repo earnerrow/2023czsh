@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .app {
+            border: 1px solid #ccc;
+            width: 300px;
+            height: 500px;
+        }
+
+        .app .topenter {
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            background-color: red;
+        }
+
+        #inp {
+            border: 0;
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            float: right;
+            color: black;
+            font-size: 30px;
+            text-align: right;
+            /* background-color: aquamarine; */
+        }
+
+        .app .con {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            div {
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                line-height: 40px;
+                color: black;
+                width: 17%;
+                margin: 2px;
+                text-align: center;
+            }
+        }
+    </style>
+     <script type="text/javascript">
+        function clicknum(num){
+        var inp=document.getElementById("inp")
+        inp.value=inp.value+num
+        console.log(num);
+        }
+        // 添加 
+        function clickadd(str){
+            var inp=document.getElementById("inp")
+        inp.value=inp.value+str
+        }
+        function equal(){
+            var inp=document.getElementById("inp")
+            var result=inp.value
+        inp.value=eval(result)
+        }
+        function clickback(){
+            var inp=document.getElementById("inp") 
+            var len=inp.value.length 
+            inp.value=inp.value.substr(0,len-1);
+        }
+        function clearover(){
+            var inp=document.getElementById("inp")
+            inp.value='' 
+            console.log(12);
+        }
+        function dot(){
+
+        }
+   </script>
+</head>
+
+<body>
+    <div class="app">
+        <div class="topenter">
+            <input type="text"  id="inp">
+        </div>
+        <div class="con">
+            <div onclick="clicknum(1)">1</div>
+            <div onclick="clicknum(2)">2</div>           
+            <div onclick="clicknum(3)">3</div>
+            <div onclick="equal()">=</div>
+            <div onclick="clickadd('+')">+</div>
+            <div onclick="clicknum(4)">4</div>
+            <div onclick="clicknum(5)">5</div>
+            <div onclick="clicknum(6)">6</div>
+            <div onclick="clickback()">back</div>
+            <div onclick="clickadd('-')">-</div>
+            <div onclick="clicknum(7)">7</div>
+            <div onclick="clicknum(8)">8</div>
+            <div onclick="clicknum(9)">9</div>
+            <div onclick="clearover()">C</div>
+            
+            <div onclick="clickadd('*')">*</div>
+            <div onclick="clicknum(0)">0</div>
+            <div onclick="clickadd('.')">.</div>
+            <div onclick="clickadd('/')">/</div>
+        </div>
+    </div>
+   
+</body>
+
+</html>
